@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated May 18, 2015 9:42:35 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping default-lazy="false">
+    <class name="com.mock.msg.model.Follow" table="follow" catalog="wot" optimistic-lock="version">
+        <composite-id name="id" class="com.mock.msg.model.FollowId">
+            <key-property name="followId" type="int">
+                <column name="follow_id" />
+            </key-property>
+            <key-property name="userId" type="int">
+                <column name="user_id" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="userByFollowId" class="com.mock.msg.model.User" update="false" insert="false" fetch="select">
+            <column name="follow_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="userByUserId" class="com.mock.msg.model.User" update="false" insert="false" fetch="select">
+            <column name="user_id" not-null="true" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>

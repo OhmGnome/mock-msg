@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated May 18, 2015 9:42:35 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping default-lazy="false">
+    <class name="com.mock.msg.model.Tell" table="tell" catalog="wot" optimistic-lock="version">
+        <id name="tellId" type="java.lang.Integer">
+            <column name="tell_id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="user" class="com.mock.msg.model.User" fetch="select">
+            <column name="user_id" not-null="true" />
+        </many-to-one>
+        <property name="message" type="string">
+            <column name="message" length="245" />
+        </property>
+        <property name="date" type="timestamp">
+            <column name="date" length="19" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

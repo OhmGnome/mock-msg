@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PROCESS model-entity="JSFProcess">
+ <PROCESS-ITEM NAME="rules:#*" PATH="/*" SHAPE="32,17,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#*:0" NAME="item" PATH="/*" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="userHome::#secured#Profile-home.xhtml"
+    NAME="output" PATH="/secured/Profile-home.xhtml"
+    TARGET="rules:#secured#Profile-home.xhtml" TITLE="userHome" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="manage::#secured#manage.xhtml"
+    NAME="output1" PATH="/secured/manage.xhtml"
+    TARGET="rules:#secured#manage.xhtml" TITLE="manage" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="home::#home.xhtml" NAME="output2"
+    PATH="/home.xhtml" TARGET="rules:#home.xhtml" TITLE="home" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="registrar::#registrar.xhtml" NAME="output3"
+    PATH="/registrar.xhtml" TARGET="rules:#registrar.xhtml"
+    TITLE="registrar" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="logout::#home.xhtml" NAME="output4"
+    PATH="/home.xhtml" TARGET="rules:#home.xhtml" TITLE="logout" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="viewUser::#user-tells.xhtml" NAME="output5"
+    PATH="/user-tells.xhtml" TARGET="rules:#user-tells.xhtml"
+    TITLE="viewUser" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#login.xhtml" PATH="/login.xhtml"
+  SHAPE="528,401,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#login.xhtml:0" NAME="item"
+   PATH="/login.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="login::#secured#Profile-home.xhtml"
+    NAME="output" PATH="/secured/Profile-home.xhtml"
+    TARGET="rules:#secured#Profile-home.xhtml" TITLE="login" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="login-fail::#login.xhtml" NAME="output1"
+    PATH="/login.xhtml" TARGET="rules:#login.xhtml" TITLE="login-fail" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#registrar.xhtml" PATH="/registrar.xhtml"
+  SHAPE="304,417,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#registrar.xhtml:0" NAME="item"
+   PATH="/registrar.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="register::#login.xhtml" NAME="output"
+    PATH="/login.xhtml" TARGET="rules:#login.xhtml" TITLE="register" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="register-fail::#registrar.xhtml"
+    NAME="output1" PATH="/registrar.xhtml"
+    TARGET="rules:#registrar.xhtml" TITLE="register-fail" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#secured#manage.xhtml"
+  PATH="/secured/manage.xhtml" SHAPE="304,33,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#user-tells.xhtml" PATH="/user-tells.xhtml"
+  SHAPE="304,561,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#home.xhtml" PATH="/home.xhtml"
+  SHAPE="304,305,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#secured#Profile-home.xhtml"
+  PATH="/secured/Profile-home.xhtml" SHAPE="752,417,0,0" model-entity="JSFProcessGroup"/>
+</PROCESS>

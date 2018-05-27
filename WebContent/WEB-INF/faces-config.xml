@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<faces-config version="2.2" xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
+ 
+<!--  JSF integration -->
+ 	<application>
+		<el-resolver>org.springframework.web.jsf.el.SpringBeanFacesELResolver</el-resolver>
+	</application>
+ 
+ <navigation-rule>
+  <!-- always starts with a view -->
+  <from-view-id>/*</from-view-id>
+  <navigation-case>
+   <from-outcome>userHome</from-outcome>
+   <to-view-id>/secured/Profile-home.xhtml</to-view-id>
+<!--    <redirect/> -->
+  </navigation-case>
+  <navigation-case>
+   <from-outcome>manage</from-outcome>
+   <to-view-id>/secured/manage.xhtml</to-view-id>
+<!--    <redirect/> -->
+  </navigation-case>
+  <navigation-case>
+   <from-outcome>home</from-outcome>
+   <to-view-id>/home.xhtml</to-view-id>
+<!--    <redirect/> -->
+  </navigation-case>
+  <navigation-case>
+   <from-outcome>registrar</from-outcome>
+   <to-view-id>/registrar.xhtml</to-view-id>
+<!--    <redirect/> -->
+  </navigation-case>
+  <navigation-case>
+   <from-outcome>logout</from-outcome>
+   <to-view-id>/home.xhtml</to-view-id>
+<!--    <redirect/> -->
+  </navigation-case>
+  <navigation-case>
+   <from-outcome>viewUser</from-outcome>
+   <to-view-id>/user-tells.xhtml</to-view-id>
+   <redirect/>
+  </navigation-case>
+ </navigation-rule>
+ <navigation-rule>
+  <from-view-id>/login.xhtml</from-view-id>
+  <navigation-case>
+   <from-outcome>login</from-outcome>
+   <to-view-id>/secured/Profile-home.xhtml</to-view-id>
+<!--    <redirect/> -->
+  </navigation-case>
+  <navigation-case>
+   <from-outcome>login-fail</from-outcome>
+   <to-view-id>/login.xhtml</to-view-id>
+  </navigation-case>
+ </navigation-rule>
+ <navigation-rule>
+  <from-view-id>/registrar.xhtml</from-view-id>
+  <navigation-case>
+   <from-outcome>register</from-outcome>
+   <to-view-id>/login.xhtml</to-view-id>
+<!--    <redirect/> -->
+  </navigation-case>
+  <navigation-case>
+   <from-outcome>register-fail</from-outcome>
+   <to-view-id>/registrar.xhtml</to-view-id>
+  </navigation-case>
+ </navigation-rule>
+ <application/>
+</faces-config>

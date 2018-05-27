@@ -1,0 +1,105 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3c.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+
+	<!-- all tells made by logged in user and thier followers -->
+</h:head>
+<h:body style="background-color: rgb(0, 102, 102)">
+	
+		<p:panel>
+			<ui:insert name="menu">
+				<ui:include src="/templates/header.xhtml" />
+			</ui:insert>
+		</p:panel>
+		<h:form>
+		
+		<p:panelGrid
+			header="Let your followers know what you are doing with irritating frequency here"
+			id="z">
+			<h:outputText id="display" />
+			<p:inputTextarea rows="3" cols="60" counter="display" maxlength="140"
+				counterTemplate="{0} characters remaining."
+				value="#{ProfileBean.tell.message}" id="zip" />
+
+
+			<p:commandButton action="#{ProfileBean.makeTell()}" value="Tell"
+				update="zip MyTells" />
+
+
+		</p:panelGrid>
+
+		<p:panelGrid>
+
+			<p:commandButton id="button" value="View User" icon="ui-icon-search"
+				action="#{navBean.viewUser()}" update="@form"/>
+
+
+			<div style="float: right">
+				<p:commandButton id="btn" value="View Teller"
+					icon="ui-icon-search" process="@form" update="@form"
+					action="#{ProfileBean.viewUserByTell()}">
+				</p:commandButton>
+			</div>
+		</p:panelGrid>
+		
+
+		<p:layout style="height: 90vh;">
+
+			<p:layoutUnit position="west" size="250">
+
+				<p:dataTable value="#{ProfileBean.followers}" var="user"
+					selectionMode="single" selection="#{userBean.user}"
+					rowKey="#{user.name}">
+
+					<p:column headerText="Followers">
+						<h:outputText value="#{user.name}" />
+					</p:column>
+
+<!-- 					<f:facet name="footer"> -->
+<!-- 						<p:commandButton id="button" value="View User" -->
+<!-- 							icon="ui-icon-search" action="#{navBean.viewUser()}" -->
+<!-- 							update="@form"> -->
+<!-- 						</p:commandButton> -->
+
+<!-- 					</f:facet> -->
+
+				</p:dataTable>
+
+
+			</p:layoutUnit>
+
+			<p:layoutUnit position="center">
+
+
+
+				<!-- 			<p:panel style="height: 70vh;"> -->
+				<p:dataTable id="MyTells" value="#{ProfileBean.tells}"
+					var="tell" selectionMode="single" selection="#{tellBean.tell}"
+					rowKey="#{tell.date}">
+
+					<p:column headerText="My Tells">
+
+						<h:outputText
+							value="User: @ #{tell.user.name} date: #{tell.date}" />
+						<Br />
+						<h:outputText value="tell: #{tell.message}" />
+						<Br />
+					</p:column>
+
+				</p:dataTable>
+				<!-- 				</p:panel> -->
+
+
+
+			</p:layoutUnit>
+
+		</p:layout>
+
+	</h:form>
+</h:body>
+</html>

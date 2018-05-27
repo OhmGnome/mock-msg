@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3c.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+</h:head>
+<h:body style="background-color: rgb(0, 102, 102)">
+
+
+	<ui:insert name="head">
+		<ui:include src="/templates/header.xhtml" />
+	</ui:insert>
+	<h:form>
+		<h:panelGrid columns="3" id="userGrid">
+			<h:outputLabel for="name" value="User Name: *" />
+			<p:inputText id="name" value="#{registerBean.user.name}"
+				required="true">
+
+				<f:validator binding="#{usernameValidator}" />
+			</p:inputText>
+
+			<p:message for="name"></p:message>
+
+			<h:outputLabel for="password" value="Password: *" />
+			<p:inputText id="password" value="#{registerBean.user.password}"
+				required="true" />
+			<p:message for="password"></p:message>
+		</h:panelGrid>
+
+
+		<!--  register method returns success or an error -->
+		<p:commandButton action="#{registerBean.register()}" update="@form"
+			value="Save" validateClient="true" />
+	</h:form>
+</h:body>
+</html>
